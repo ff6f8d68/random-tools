@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Travel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .time-message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Time Travel</h1>
+    <p>Click to travel to a random moment in time!</p>
+    <button onclick="generateTimeMessage()">Travel Through Time</button>
+    <div id="timeMessage" class="time-message"></div>
+</div>
+
+<script>
+    function generateTimeMessage() {
+        const timeMessages = [
+            "You have traveled to the year 3021, where robots govern the world.",
+            "You are now in the year 1000 BC, standing at the edge of the Great Pyramids of Giza.",
+            "You’ve just arrived in 2050, where humans are exploring Mars.",
+            "It's 2089, and time travel is now a reality. Will you explore the future or the past?",
+            "You’re now in the year 1800, witnessing the dawn of the industrial revolution."
+        ];
+
+        const randomMessage = timeMessages[Math.floor(Math.random() * timeMessages.length)];
+        document.getElementById('timeMessage').innerHTML = randomMessage;
+    }
+</script>
+
+</body>
+</html>
