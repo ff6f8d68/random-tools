@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Poem Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .poem {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cosmic Poem Generator</h1>
+    <p>Click to generate a cosmic poem!</p>
+    <button onclick="generatePoem()">Generate Poem</button>
+    <div id="poem" class="poem"></div>
+</div>
+
+<script>
+    function generatePoem() {
+        const poems = [
+            "Stars whisper secrets, ancient and bright,\nIn the deep cosmic sea, we take flight.\nThe moon hums softly in the silent sky,\nWhile comets like dreams streak swiftly by.",
+            "Galaxies swirl in the vastness of night,\nTime dances forward, then slips out of sight.\nNebulae bloom like flowers in space,\nOur minds stretch forward, seeking their place.",
+            "In the quiet darkness, a star is born,\nIt flickers like hope on a distant dawn.\nEons will pass, but its light will remain,\nA symbol of peace in the vast cosmic domain."
+        ];
+
+        const randomPoem = poems[Math.floor(Math.random() * poems.length)];
+        document.getElementById('poem').innerHTML = randomPoem;
+    }
+</script>
+
+</body>
+</html>
