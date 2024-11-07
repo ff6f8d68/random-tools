@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Particle Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quantum Particle Simulator</h1>
+    
+    <button onclick="simulateQuantumParticle()">Simulate Particle Movement</button>
+    
+    <div id="particleResult" class="output"></div>
+</div>
+
+<script>
+    function simulateQuantumParticle() {
+        const positions = ['Position A', 'Position B', 'Position C', 'Position D'];
+        const behaviors = ['Waveform Collapse', 'Superposition', 'Quantum Tunneling', 'Entanglement'];
+
+        const position = positions[Math.floor(Math.random() * positions.length)];
+        const behavior = behaviors[Math.floor(Math.random() * behaviors.length)];
+
+        document.getElementById('particleResult').innerHTML = `
+            <p>The quantum particle is currently at <strong>${position}</strong>.</p>
+            <p>The particle is exhibiting <strong>${behavior}</strong> behavior.</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
