@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .equation {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reverse Calculator</h1>
+    <p>Enter a number and I'll try to find a mathematical formula to produce it!</p>
+    <input type="number" id="targetNumber" placeholder="Enter number" />
+    <button onclick="findFormula()">Find Formula</button>
+    <div id="equation" class="equation"></div>
+</div>
+
+<script>
+    function findFormula() {
+        const target = document.getElementById('targetNumber').value;
+        const randomOps = ["+", "-", "*", "/"];
+        const randomNum = Math.floor(Math.random() * 10) + 1;
+
+        let formula = `${randomNum} + ${target - randomNum}`;
+        document.getElementById('equation').innerHTML = `Formula: ${formula}`;
+    }
+</script>
+
+</body>
+</html>
