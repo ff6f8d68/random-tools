@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakespearean Text Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Shakespearean Text Converter</h1>
+    
+    <input type="text" id="inputText" placeholder="Enter your text here">
+    <button onclick="convertToShakespeare()">Convert to Shakespearean</button>
+    
+    <div id="shakespeareResult" class="output"></div>
+</div>
+
+<script>
+    function convertToShakespeare() {
+        let inputText = document.getElementById('inputText').value;
+        const shakespeareanWords = {
+            "you": "thou",
+            "your": "thy",
+            "are": "art",
+            "is": "doth",
+            "my": "mine",
+            "friend": "comrade",
+            "yes": "aye",
+            "no": "nay"
+        };
+
+        let convertedText = inputText.split(" ").map(word => {
+            return shakespeareanWords[word.toLowerCase()] || word;
+        }).join(" ");
+
+        document.getElementById('shakespeareResult').innerHTML = `<p>${convertedText}</p>`;
+    }
+</script>
+
+</body>
+</html>
