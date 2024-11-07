@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Fun Tools</title>
+    <title>Random Tools</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,7 +16,7 @@
             margin: 0;
         }
         .container {
-            width: 600px;
+            width: 400px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -26,18 +26,17 @@
         h1 {
             color: #333;
         }
-        .category-btn {
-            margin: 10px;
+        button {
+            margin: 20px 0;
             padding: 15px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
         }
-        .category-btn:hover {
+        button:hover {
             background-color: #0056b3;
         }
     </style>
@@ -45,24 +44,38 @@
 <body>
 
 <div class="container">
-    <h1>Welcome to Random Fun Tools</h1>
+    <h1>Random Tools</h1>
+    <p>Click the button below to go to a random tool!</p>
     
-    <h3>Select a Tool Category:</h3>
-    
-    <!-- Categories -->
-    <button class="category-btn" onclick="window.location.href='/tools/math/equation.html'">Math Tools</button>
-    <button class="category-btn" onclick="window.location.href='/tools/fun/joke.html'">Fun Tools</button>
-    <button class="category-btn" onclick="window.location.href='/tools/color/color.html'">Color Tools</button>
-    <button class="category-btn" onclick="window.location.href='/tools/quote/quote.html'">Quote Tools</button>
-    <button class="category-btn" onclick="window.location.href='/tools/number/numberToWords.html'">Number Tools</button>
-    <button class="category-btn" onclick="window.location.href='/tools/quantum/particle.html'">Quantum Particle Simulator</button>
-    <button class="category-btn" onclick="window.location.href='/tools/shakespeare/shakespeare.html'">Shakespearean Text Converter</button>
-    <button class="category-btn" onclick="window.location.href='/tools/fortune/fortune.html'">Fortune Cookie Generator</button>
-    <button class="category-btn" onclick="window.location.href='/tools/universe/universe.html'">Random Universe Generator</button>
-    <button class="category-btn" onclick="window.location.href='/tools/timeTravel/timeTravel.html'">Time Travel Calculator</button>
-    <button class="category-btn" onclick="window.location.href='/tools/cosmic/cosmicPoem.html'">Cosmic Poem Generator</button>
-    <button class="category-btn" onclick="window.location.href='/tools/reverseCalculator/reverseCalc.html'">Reverse Calculator</button>
+    <!-- Button to select a random tool -->
+    <button onclick="goToRandomTool()">Go to Random Tool</button>
 </div>
+
+<script>
+    function goToRandomTool() {
+        // Array of the available tools
+        const tools = [
+            '/math/equation.html',
+            '/fun/joke.html',
+            '/color/color.html',
+            '/tools/quote/quote.html',
+            '/number/numberToWords.html',
+            '/quantum/particle.html',
+            '/shakespeare/shakespeare.html',
+            '/fortune/fortune.html',
+            '/universe/universe.html',
+            '/timeTravel/timeTravel.html',
+            '/cosmic/cosmicPoem.html',
+            '/reverseCalculator/reverseCalc.html'
+        ];
+
+        // Select a random index from the tools array
+        const randomTool = tools[Math.floor(Math.random() * tools.length)];
+
+        // Redirect to the selected tool
+        window.location.href = randomTool;
+    }
+</script>
 
 </body>
 </html>
