@@ -26,8 +26,8 @@
         h1 {
             color: #333;
         }
-        button {
-            margin: 20px 0;
+        button, select {
+            margin: 10px 0;
             padding: 15px;
             background-color: #007bff;
             color: white;
@@ -36,7 +36,7 @@
             cursor: pointer;
             font-size: 16px;
         }
-        button:hover {
+        button:hover, select:hover {
             background-color: #0056b3;
         }
     </style>
@@ -45,9 +45,26 @@
 
 <div class="container">
     <h1>Random Tools</h1>
-    <p>Click the button below to go to a random tool!</p>
+    <p>Choose a tool from the list below or click the button to go to a random tool!</p>
     
-    <!-- Button to select a random tool -->
+    <!-- Dropdown to select a tool -->
+    <select id="toolSelect">
+        <option value="">Select a Tool</option>
+        <option value="/math/equation.html">Math Equation Generator</option>
+        <option value="/fun/joke.html">Joke Generator</option>
+        <option value="/color/color.html">Color Generator</option>
+        <option value="/tools/quote/quote.html">Quote Generator</option>
+        <option value="/number/numberToWords.html">Number to Words</option>
+        <option value="/quantum/particle.html">Quantum Particle Generator</option>
+        <option value="/shakespeare/shakespeare.html">Shakespeare Translator</option>
+        <option value="/fortune/fortune.html">Fortune Cookie Joke</option>
+        <option value="/universe/universe.html">Universe Explorer</option>
+        <option value="/timeTravel/timeTravel.html">Time Travel Predictor</option>
+        <option value="/cosmic/cosmicPoem.html">Cosmic Poem Generator</option>
+        <option value="/reverseCalculator/reverseCalc.html">Reverse Calculator</option>
+    </select>
+
+    <button onclick="goToSelectedTool()">Go to Selected Tool</button>
     <button onclick="goToRandomTool()">Go to Random Tool</button>
 </div>
 
@@ -74,6 +91,15 @@
 
         // Redirect to the selected tool
         window.location.href = randomTool;
+    }
+
+    function goToSelectedTool() {
+        const selectedTool = document.getElementById('toolSelect').value;
+        if (selectedTool) {
+            window.location.href = selectedTool;
+        } else {
+            alert("Please select a tool from the dropdown.");
+        }
     }
 </script>
 
