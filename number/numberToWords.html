@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Words Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Number to Words Converter</h1>
+    <p>Enter a number and click to convert it to words!</p>
+    <input type="number" id="numberInput" placeholder="Enter number" />
+    <button onclick="convertToWords()">Convert</button>
+    <div id="output" class="output"></div>
+</div>
+
+<script>
+    function convertToWords() {
+        const num = document.getElementById('numberInput').value;
+        const words = new Intl.NumberFormat('en-US', { style: 'decimal' }).format(num);
+        document.getElementById('output').innerHTML = words;
+    }
+</script>
+
+</body>
+</html>
