@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Cookie Joke Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e67e22;
+        }
+        .fortune {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Fortune Cookie Joke Maker</h1>
+    <p>Click the button to receive a funny fortune cookie joke!</p>
+    <button onclick="generateFortuneJoke()">Open Fortune Cookie</button>
+    <div id="fortune" class="fortune"></div>
+</div>
+
+<script>
+    function generateFortuneJoke() {
+        const jokes = [
+            "You will soon receive a fortune... but it will be in the form of pizza.",
+            "Your fortune will be unexpectedly correct... unless it's wrong.",
+            "The future holds success... or maybe just tacos, but that's still pretty good.",
+            "A great opportunity is headed your way, but so is a pile of laundry.",
+            "A new path will open for you, but it’s probably just a hallway to the fridge."
+        ];
+
+        const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+        document.getElementById('fortune').innerHTML = randomJoke;
+    }
+</script>
+
+</body>
+</html>
