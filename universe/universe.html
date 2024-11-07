@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the Universe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .universe-message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Explore the Universe</h1>
+    <p>Click to discover an amazing cosmic fact!</p>
+    <button onclick="revealUniverseFact()">Reveal Universe Fact</button>
+    <div id="universeMessage" class="universe-message"></div>
+</div>
+
+<script>
+    function revealUniverseFact() {
+        const facts = [
+            "There are more stars in the universe than grains of sand on all of Earth's beaches.",
+            "The largest known star is UY Scuti, a red supergiant located in the constellation of Scutum.",
+            "A day on Venus is longer than a year on Venus.",
+            "The Milky Way galaxy is on a collision course with the Andromeda galaxy.",
+            "In 2004, NASA discovered a planet made entirely of diamonds, named 55 Cancri e."
+        ];
+
+        const randomFact = facts[Math.floor(Math.random() * facts.length)];
+        document.getElementById('universeMessage').innerHTML = randomFact;
+    }
+</script>
+
+</body>
+</html>
