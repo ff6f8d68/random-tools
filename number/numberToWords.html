@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f5;
+            background-color: #f9f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,7 +35,15 @@
         button:hover {
             background-color: #0056b3;
         }
-        .output {
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 80%;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .result {
             margin-top: 20px;
             font-size: 1.2em;
             color: #333;
@@ -46,17 +54,50 @@
 
 <div class="container">
     <h1>Number to Words Converter</h1>
-    <p>Enter a number and click to convert it to words!</p>
-    <input type="number" id="numberInput" placeholder="Enter number" />
-    <button onclick="convertToWords()">Convert</button>
-    <div id="output" class="output"></div>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="convertNumberToWords()">Convert to Words</button>
+    <div id="result" class="result"></div>
 </div>
 
 <script>
-    function convertToWords() {
+    // Function to convert number to words
+    function convertNumberToWords() {
         const num = document.getElementById('numberInput').value;
-        const words = new Intl.NumberFormat('en-US', { style: 'decimal' }).format(num);
-        document.getElementById('output').innerHTML = words;
+        if (!num) {
+            document.getElementById('result').innerText = "Please enter a number.";
+            return;
+        }
+        document.getElementById('result').innerText = numberToWords(parseInt(num));
+    }
+
+    // Core conversion function
+    function numberToWords(num) {
+        if (num === 0) return "zero";
+
+        const belowTwenty = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+        const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+        const thousands = ["", "thousand", "million", "billion"];
+
+        function helper(n) {
+            if (n < 20) return belowTwenty[n];
+            if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 !== 0 ? " " + belowTwenty[n % 10] : "");
+            if (n < 1000) return belowTwenty[Math.floor(n / 100)] + " hundred" + (n % 100 !== 0 ? " " + helper(n % 100) : "");
+            return "";
+        }
+
+        let words = "";
+        let level = 0;
+
+        while (num > 0) {
+            const chunk = num % 1000;
+            if (chunk !== 0) {
+                words = helper(chunk) + (thousands[level] ? " " + thousands[level] : "") + " " + words;
+            }
+            num = Math.floor(num / 1000);
+            level++;
+        }
+
+        return words.trim();
     }
 </script>
 
